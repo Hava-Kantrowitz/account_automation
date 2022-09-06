@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import pdfplumber
 from PyPDF2 import PdfFileReader
 import re 
 
