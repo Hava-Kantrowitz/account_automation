@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'pip3 install pdfplumber'
                 sh "echo $WORKSPACE"
-                sh "python3 acc_create.py /var/lib/jenkins/"
+                sh "python3 acc_create.py /var/lib/jenkins/fams"
             }
         }
     }
