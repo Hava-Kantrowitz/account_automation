@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'python3 say_hello.py' 
+                sh 'python3 acc_create.py' 
             }
         }
     }
