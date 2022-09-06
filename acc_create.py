@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-from PyPDF2 import PdfFileReader
+import pdfplumber
 import re 
 
 def parse_args():
