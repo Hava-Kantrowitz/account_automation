@@ -1,14 +1,6 @@
-pipeline {
-    agent any
+library "file-workaround"
 
-    stages {
-        stage('Hello') {
-            steps {
-                sh 'pip3 install pdfplumber'
-                sh "echo $WORKSPACE"
-                sh 'ls' 
-                sh "python3 acc_create.py /var/lib/jenkins/$fams"
-            }
-        }
-    }
+node {
+    def file_in_workspace = unstashParam "fams"
+    sh "cat ${file_in_workspace}"
 }
