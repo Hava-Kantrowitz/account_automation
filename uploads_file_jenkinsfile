@@ -1,0 +1,24 @@
+//This jenkins file can take a file from anywhere and run it through the pipeline 
+//However it only works every other time
+//The fact that it works every other time is repeatable. I cannot for the life of me figure out how to get it to work every time 
+//The issue every other time is that a file in the Java library the unstashParam library calls does not exist 
+//I'm so confused
+//wtf jenkins
+library "jenkinsci-unstashParam-library"
+node { 
+    stage('prep_env') { 
+        retry(3) {
+            sh 'pip3 install pdfplumber'
+            def file_in_workspace = unstashParam "fams"
+            sh "echo 'yo made it here'"
+            checkout scm
+            sh "cp $fams fam_test"
+        }
+    }
+    stage('assess_file') {
+        sh "python3 acc_create.py $WORKSPACE/$fams" 
+    }
+    stage('cleanup'){
+        cleanWs()
+    }
+}
