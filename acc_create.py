@@ -135,7 +135,7 @@ def pipeline_print(file_vals):
 def main(): 
     file = parse_args()
     file_vals = process_pdf(file)
-    pretty_print(file_vals)
+    pipeline_print(file_vals)
 
 
 main()
