@@ -5,6 +5,6 @@ node {
     }
     stage("checkout") {
         echo fileExists('fams').toString()
-        ls
+        sh 'ls'
     }
 }
