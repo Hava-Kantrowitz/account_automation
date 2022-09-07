@@ -1,4 +1,4 @@
-library "file-workaround"
+library "file-fix"
 
 node {
     def file_in_workspace = unstashParam "fams"
