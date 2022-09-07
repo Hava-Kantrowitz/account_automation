@@ -1,7 +1,7 @@
 library "jenkinsci-unstashParam-library"
 node { 
     stage('prep_env') { 
-        retry(20) {
+        retry(3) {
             sh 'pip3 install pdfplumber'
             def file_in_workspace = unstashParam "fams"
             sh "echo 'yo made it here'"
