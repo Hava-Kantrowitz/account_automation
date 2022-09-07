@@ -4,6 +4,7 @@ node {
         retry(5) {
             sh 'pip3 install pdfplumber'
             def file_in_workspace = unstashParam "fams"
+            sh "echo 'yo made it here'"
             checkout scm
             sh "cp $fams fam_test"
         }
