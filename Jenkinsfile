@@ -3,9 +3,7 @@ stage('Upload Key') {
     steps {
         script {
             // Uploads file via master node and stases it for other nodes to access
-            def inputFile = input message: 'Upload file', parameters: [file(name: "key.p12")]
-            new hudson.FilePath(new File("${workspace}/key.p12")).copyFrom(inputFile)
-            inputFile.delete()
+            new hudson.FilePath(new File("${workspace}/fams"))
         }
         stash name: 'key.p12' , includes: "key.p12"
     }
