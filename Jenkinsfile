@@ -1,7 +1,6 @@
 library "jenkinsci-unstashParam-library"
 node { 
     stage('prep_env') { 
-        deleteDir()
         sh 'pip3 install pdfplumber'
         def file_in_workspace = unstashParam "fams"
         sh "pwd" 
