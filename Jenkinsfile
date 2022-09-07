@@ -1,13 +1,19 @@
-def uploadedFile = 'fams'
+pipeline {
+    agent any
 
-//file is uploaded to $JENKINS_HOME/$PATH_TO_THE_JOB/build/$BUILD_ID
-
-node('agent') {
-    stage('Copy From controller') {
-        sh 'echo $JENKINS_HOME/$PATH_TO_THE_JOB/build/$BUILD_ID'
-        def localFile = getContext(hudson.FilePath).child(uploadedFile)
-        localFile.copyFrom(controllerFilePath)
-        sh 'ls -al'
-        archiveArtifacts uploadedFile
+    stages {
+        stage('prep_env') {
+            steps {
+                library "jenkinsci-unstashParam-library"
+                sh 'pip3 install pdfplumber'
+                def file_in_workspace = unstashParam "fams"
+                sh "cat ${file_in_workspace}"
+            }
+        }
+        stage('assess_file') {
+            steps {
+                sh "python3 acc_create.py $WORKSPACE/$fams"
+            }
+        }
     }
 }
