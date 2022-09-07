@@ -5,8 +5,8 @@ node {
         retry(5) {
             def file_in_workspace = unstashParam "fams"
             sh "echo 'we in here'"
-            sh "cp $fams fam_test"
             checkout scm
+            sh "cp $fams fam_test"
         }
         sh 'ls'
     }
