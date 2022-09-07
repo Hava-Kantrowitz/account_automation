@@ -4,6 +4,7 @@ node {
         deleteDir()
         sh 'pip3 install pdfplumber'
         def file_in_workspace = unstashParam "fams"
+        checkout scm
         sh "pwd" 
         sh "ls"
     }
