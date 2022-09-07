@@ -1,0 +1,11 @@
+cat /var/lib/jenkins/val.txt
+name=$(head -1 /var/lib/jenkins/val.txt)
+email=$(head -2 /var/lib/jenkins/val.txt | tail -1)
+company=$(head -3 /var/lib/jenkins/val.txt | tail -1)
+App=$(head -4 /var/lib/jenkins/val.txt | tail -1)
+Access=$(tail -1 /var/lib/jenkins/val.txt)
+echo "Name: $name"
+echo "Email: $email"
+echo "Company: $company"
+echo "App: $App"
+echo "Access: $Access"
