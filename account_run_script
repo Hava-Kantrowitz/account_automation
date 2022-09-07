@@ -1,0 +1,2 @@
+pip3 install pdfplumber
+python3 acc_create.py $WORKSPACE/fams > /var/lib/jenkins/val.txt
